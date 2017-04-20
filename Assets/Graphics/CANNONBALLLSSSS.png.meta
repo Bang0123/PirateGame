@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: b50da094bb45e9f4697f7e6925ffa31c
+timeCreated: 1492711538
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CANNONBALLLSSSS_0
+    21300002: CANNONBALLLSSSS_1
+    21300004: CANNONBALLLSSSS_2
+    21300006: CANNONBALLLSSSS_3
+    21300008: CANNONBALLLSSSS_4
+    21300010: CANNONBALLLSSSS_5
+    21300012: CANNONBALLLSSSS_6
+    21300014: CANNONBALLLSSSS_7
+    21300016: CANNONBALLLSSSS_8
+    21300018: CANNONBALLLSSSS_9
+    21300020: CANNONBALLLSSSS_10
+    21300022: CANNONBALLLSSSS_11
+    21300024: CANNONBALLLSSSS_12
+    21300026: CANNONBALLLSSSS_13
+    21300028: CANNONBALLLSSSS_14
+    21300030: CANNONBALLLSSSS_15
+    21300032: CANNONBALLLSSSS_16
+    21300034: CANNONBALLLSSSS_17
+    21300036: CANNONBALLLSSSS_18
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 286
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 286
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 286
+        width: 62
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 286
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 286
+        width: 62
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_5
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 286
+        width: 62
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 286
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 286
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 250
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 154
+        width: 81
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 154
+        width: 81
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 154
+        width: 83
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_12
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 154
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_13
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 154
+        width: 87
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_14
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 154
+        width: 89
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_15
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 154
+        width: 91
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_16
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 154
+        width: 91
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 87
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CANNONBALLLSSSS_18
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 0
+        width: 169
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
