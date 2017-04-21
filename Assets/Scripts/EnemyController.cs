@@ -18,7 +18,7 @@ namespace Assets.Scripts
         // Update is called once per frame
         public void Update()
         {
-            transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .01f);
+            transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);
         }
 
         public void FixedUpdate()
