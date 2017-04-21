@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System.Collections;
 
 public class IsleCollider : MonoBehaviour {
 
     public string Text;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
     //private bool showText = false, someRandomCondition = true;
     private float currentTime = 0.0f, executedTime = 0.0f, timeToWait = 0.0f;
     private int gold = 0;
     // Use this for initialization
     void Start () {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     public int Gold
