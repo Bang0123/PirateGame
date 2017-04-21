@@ -13,6 +13,7 @@ public class IsleCollider : MonoBehaviour {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
+    // TODO Gold need a remake, each island has its own gold counter which is not gut :(!
     public int Gold
     {
         get { return gold; }
