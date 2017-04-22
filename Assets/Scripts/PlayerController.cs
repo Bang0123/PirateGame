@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -11,6 +12,7 @@ namespace Assets.Scripts
 
         private int _turnRate = -30;
         private int _movespeed = 300;
+        private int _currentGold;
         private Rigidbody2D _rb;
         private Transform _starboard;
         private Transform _port;
@@ -18,6 +20,7 @@ namespace Assets.Scripts
         // Use this for initialization
         public void Start()
         {
+            _currentGold = 0;
             _rb = GetComponent<Rigidbody2D>();
             _starboard = transform.FindChild("Starboard");
             _port = transform.FindChild("Port");
@@ -36,6 +39,7 @@ namespace Assets.Scripts
             if (Input.GetKeyDown(KeyCode.V))
             {
                 var ball = (GameObject)Instantiate(Resources.Load("Ball"), _port.position, transform.rotation);
+                ball.GetComponent<BallController>().Parent = this;
                 ball.GetComponent<Rigidbody2D>().AddRelativeForce(-Vector2.right * Bulletspeed);
             }
         }
@@ -45,12 +49,27 @@ namespace Assets.Scripts
             if (Math.Abs(Input.GetAxisRaw("Horizontal")) > 0)
             {
                 _rb.AddTorque(_turnRate * Input.GetAxis("Horizontal") * Time.fixedDeltaTime);
-                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _movespeed * Time.fixedDeltaTime);
+                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _movespeed *
+                                     Time.fixedDeltaTime);
             }
             else
             {
                 _rb.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * _movespeed * Time.fixedDeltaTime);
             }
+        }
+
+        public void AddGold(int amount)
+        {
+            _currentGold += amount;
+        }
+
+        public void RemoveGold(int amount)
+        {
+            _currentGold -= amount;
+        }
+        public void UpdateGoldCounter()
+        {
+            GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>().text = "" + _currentGold;
         }
     }
 }

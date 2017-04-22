@@ -12,5 +12,7 @@ namespace Assets.Scripts
         {
             Destroy(gameObject, 1);
         }
+
+        public PlayerController Parent { get; set; }
     }
 }
