@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class IsleCollider : MonoBehaviour
 {
 
-    public string Text;
+    private string _text;
     public int Gold;
 
     private Rigidbody2D _rigidbody2D;
     //private bool showText = false, someRandomCondition = true;
-    private float currentTime = 0.1f, executedTime = 0.1f, timeToWait = 0.0f;
+    public float Goldcd = 3f;
     private PlayerController _playerController;
 
 
@@ -22,25 +22,25 @@ public class IsleCollider : MonoBehaviour
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
-    // TODO Gold need a remake, each island has its own gold counter which is not gut :(!
+    
     // Update is called once per frame
     void Update()
     {
+        InvokeRepeating("RegenGold", Goldcd, Goldcd);
+    }
 
-        //currentTime = Time.time;
-        //if (someRandomCondition)
-        //    showText = true;
-        //else
-        //    showText = false;
+    void RegenGold()
+    {
+        if (Gold >= 10)
+        {
+            return;
+        }
+        Gold += 2;
+    }
 
-        //if (executedTime != 0.0f)
-        //{
-        //    if (currentTime - executedTime > timeToWait)
-        //    {
-        //        executedTime = 0.0f;
-        //        someRandomCondition = false;
-        //    }
-        //}
+    void ResetGold()
+    {
+        Gold = 0;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -50,15 +50,15 @@ public class IsleCollider : MonoBehaviour
             //GUI.Label(new Rect(0, 0, 100, 100), "Some Random Text");
             Debug.Log("Player robbed me xd");
             _playerController.AddGold(Gold);
-            _playerController.UpdateGoldCounter();
+            ResetGold();
         }
-        if (col.gameObject.tag == "CannonBall")
+        if (col.gameObject.tag == "Cannonball")
         {
             Debug.Log("Player Shot me xd");
             if (_playerController != null)
             {
                 _playerController.AddGold(Gold);
-                _playerController.UpdateGoldCounter();
+                ResetGold();
             }
         }
 

@@ -7,6 +7,7 @@ namespace Assets.Scripts
     public class PlayerController : Ship
     {
         private int _currentGold;
+        private Text _goldText;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
@@ -17,6 +18,7 @@ namespace Assets.Scripts
             base.Start();
             _currentGold = 0;
             _health = 3;
+            _goldText = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
         }
 
         /// <summary>
@@ -61,15 +63,17 @@ namespace Assets.Scripts
         public void AddGold(int amount)
         {
             _currentGold += amount;
+            UpdateGoldCounter();
         }
 
         public void RemoveGold(int amount)
         {
             _currentGold -= amount;
+            UpdateGoldCounter();
         }
-        public void UpdateGoldCounter()
+        private void UpdateGoldCounter()
         {
-            GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>().text = "" + _currentGold;
+            _goldText.text = "" + _currentGold;
         }
 
         private void MovementControls()
