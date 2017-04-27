@@ -6,10 +6,12 @@ public class IsleCollider : MonoBehaviour
 {
 
     public string Text;
+    public int Gold;
+
     private Rigidbody2D _rigidbody2D;
     //private bool showText = false, someRandomCondition = true;
     private float currentTime = 0.1f, executedTime = 0.1f, timeToWait = 0.0f;
-    public int Gold;
+    private PlayerController _playerController;
 
 
     // Use this for initialization
@@ -17,6 +19,7 @@ public class IsleCollider : MonoBehaviour
     {
         Gold = 10;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     // TODO Gold need a remake, each island has its own gold counter which is not gut :(!
@@ -44,20 +47,18 @@ public class IsleCollider : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            var playerobj = col.gameObject.GetComponent<PlayerController>();
             //GUI.Label(new Rect(0, 0, 100, 100), "Some Random Text");
             Debug.Log("Player robbed me xd");
-            playerobj.AddGold(Gold);
-            playerobj.UpdateGoldCounter();
+            _playerController.AddGold(Gold);
+            _playerController.UpdateGoldCounter();
         }
         if (col.gameObject.tag == "CannonBall")
         {
-            var playerobj = col.gameObject.GetComponent<BallController>().Parent;
             Debug.Log("Player Shot me xd");
-            if (playerobj != null)
+            if (_playerController != null)
             {
-                playerobj.AddGold(Gold);
-                playerobj.UpdateGoldCounter();
+                _playerController.AddGold(Gold);
+                _playerController.UpdateGoldCounter();
             }
         }
 

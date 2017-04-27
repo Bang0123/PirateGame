@@ -4,56 +4,37 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Ship
     {
-        private const int Movespeed = 300;
-        private const int BoostedMovespeed = 500;
-        private const int Bulletspeed = 500;
-
-        private int _turnRate = -30;
-        private int _movespeed = 300;
         private int _currentGold;
-        private Rigidbody2D _rb;
-        private Transform _starboard;
-        private Transform _port;
 
-        // Use this for initialization
-        public void Start()
+        /// <summary>
+        /// Start is called on the frame when a script is enabled just before
+        /// any of the Update methods is called the first time.
+        /// </summary>
+        public new void Start()
         {
+            base.Start();
             _currentGold = 0;
-            _rb = GetComponent<Rigidbody2D>();
-            _starboard = transform.FindChild("Starboard");
-            _port = transform.FindChild("Port");
         }
 
-        // Update is called once per frame
+        /// <summary>
+        /// Update is called every frame, if the MonoBehaviour is enabled.
+        /// </summary>
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) _movespeed = BoostedMovespeed;
-            if (Input.GetKeyUp(KeyCode.Space)) _movespeed = Movespeed;
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                var ball = (GameObject)Instantiate(Resources.Load("PlayerBall"), _starboard.position, transform.rotation);
-                ball.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * Bulletspeed);
-            }
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                var ball = (GameObject)Instantiate(Resources.Load("PlayerBall"), _port.position, transform.rotation);
-                ball.GetComponent<Rigidbody2D>().AddRelativeForce(-Vector2.right * Bulletspeed);
-            }
+            // Speed boost.
+            if (Input.GetKeyDown(KeyCode.Space)) _currentMovespeed = _boostedMovespeed;
+            if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
+            Fire();
         }
 
+        /// <summary>
+        /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+        /// </summary>
         public void FixedUpdate()
         {
-            if (Math.Abs(Input.GetAxisRaw("Horizontal")) > 0)
-            {
-                _rb.AddTorque(_turnRate * Input.GetAxis("Horizontal") * Time.fixedDeltaTime);
-                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _movespeed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                _rb.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * _movespeed * Time.fixedDeltaTime);
-            }
+            MovementControls();
         }
 
         public void AddGold(int amount)
@@ -68,6 +49,31 @@ namespace Assets.Scripts
         public void UpdateGoldCounter()
         {
             GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>().text = "" + _currentGold;
+        }
+
+        private void MovementControls()
+        {
+            if (Math.Abs(Input.GetAxisRaw("Horizontal")) > 0)
+            {
+                _rb.AddTorque(_turnRate * Input.GetAxis("Horizontal") * Time.fixedDeltaTime);
+                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _currentMovespeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                _rb.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * _currentMovespeed * Time.fixedDeltaTime);
+            }
+        }
+
+        private void Fire()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                FireCannonball(_starboard.position, Vector2.right);
+            }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                FireCannonball(_port.position, Vector2.left);
+            }
         }
     }
 }
