@@ -11,6 +11,7 @@ namespace Assets.Scripts
         {
             base.Start();
             _playerTransform = GameObject.FindWithTag("Player").transform;
+            _health = 3;
         }
 
         // Update is called once per frame
@@ -26,7 +27,7 @@ namespace Assets.Scripts
         /// </summary>
         void FixedUpdate()
         {
-            _rb.AddRelativeForce(Vector2.up * _currentMovespeed * Time.fixedDeltaTime);            
+            _rb.AddRelativeForce(Vector2.up * _currentMovespeed * Time.fixedDeltaTime);
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace Assets.Scripts
         /// <param name="other">The Collision2D data associated with this collision.</param>
         public void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("PlayerBall"))
+            if (other.gameObject.CompareTag("Cannonball") && other.gameObject.GetComponent<BallController>().Parent is PlayerController)
             {
                 _health--;
                 Destroy(other.gameObject);
@@ -56,7 +57,7 @@ namespace Assets.Scripts
 
         private void TurnToPlayer()
         {
-            transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);            
+            transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);
         }
     }
 }
