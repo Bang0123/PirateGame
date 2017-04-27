@@ -96,5 +96,11 @@ namespace Assets.Scripts
                 FireCannonball(_port.position, Vector2.left);
             }
         }
+
+        // used by the enemy spawner to stop spawning at some point
+        public int GetHealth()
+        {
+            return _health;
+        }
     }
 }

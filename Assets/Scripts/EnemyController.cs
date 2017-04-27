@@ -5,13 +5,18 @@ namespace Assets.Scripts
     public class EnemyController : Ship
     {
         private Transform _playerTransform;
-
+        public bool SelfDesctruction;
+        public int TimeBeforeSD = 20;
         // Use this for initialization
         public new void Start()
         {
             base.Start();
             _playerTransform = GameObject.FindWithTag("Player").transform;
             _health = 3;
+            if (SelfDesctruction)
+            {
+                Destroy(gameObject, TimeBeforeSD);
+            }
         }
 
         // Update is called once per frame
@@ -55,5 +60,6 @@ namespace Assets.Scripts
         {
             transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);
         }
+
     }
 }
