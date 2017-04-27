@@ -8,19 +8,23 @@ public class Shop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
+            Debug.Log("Collided with isle");          
             OpenShop();
     }
 
     void OpenShop()
     {
         shopPanel.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void CloseShop()
     {
         shopPanel.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
+
+ 
 }
