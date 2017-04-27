@@ -37,11 +37,7 @@ namespace Assets.Scripts
         /// <param name="other">The Collision2D data associated with this collision.</param>
         public void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Cannonball") && other.gameObject.GetComponent<BallController>().Parent is PlayerController)
-            {
-                _health--;
-                Destroy(other.gameObject);
-            }
+            TakeDamage<PlayerController>(other.gameObject);
         }
 
         private void FireCannonballs()

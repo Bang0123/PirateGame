@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -42,6 +43,15 @@ namespace Assets.Scripts
             var ball = (GameObject)Instantiate(Resources.Load("Cannonball"), position, transform.rotation);
             ball.GetComponent<BallController>().Parent = this;
             ball.GetComponent<Rigidbody2D>().AddRelativeForce(direction * _bulletspeed);
+        }
+
+        protected void TakeDamage<T>(GameObject obj)
+        {
+            if (obj.CompareTag("Cannonball") && obj.GetComponent<BallController>().Parent is T)
+            {
+                _health--;
+                Destroy(obj);
+            }
         }
     }
 }
