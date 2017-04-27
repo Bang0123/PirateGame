@@ -33,13 +33,12 @@ namespace Assets.Scripts
             if (Input.GetKeyUp(KeyCode.Space)) _movespeed = Movespeed;
             if (Input.GetKeyDown(KeyCode.B))
             {
-                var ball = (GameObject)Instantiate(Resources.Load("Ball"), _starboard.position, transform.rotation);
+                var ball = (GameObject)Instantiate(Resources.Load("PlayerBall"), _starboard.position, transform.rotation);
                 ball.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * Bulletspeed);
             }
             if (Input.GetKeyDown(KeyCode.V))
             {
-                var ball = (GameObject)Instantiate(Resources.Load("Ball"), _port.position, transform.rotation);
-                ball.GetComponent<BallController>().Parent = this;
+                var ball = (GameObject)Instantiate(Resources.Load("PlayerBall"), _port.position, transform.rotation);
                 ball.GetComponent<Rigidbody2D>().AddRelativeForce(-Vector2.right * Bulletspeed);
             }
         }
@@ -49,8 +48,7 @@ namespace Assets.Scripts
             if (Math.Abs(Input.GetAxisRaw("Horizontal")) > 0)
             {
                 _rb.AddTorque(_turnRate * Input.GetAxis("Horizontal") * Time.fixedDeltaTime);
-                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _movespeed *
-                                     Time.fixedDeltaTime);
+                _rb.AddRelativeForce(Vector2.up * Mathf.Abs(Input.GetAxis("Horizontal")) * _movespeed * Time.fixedDeltaTime);
             }
             else
             {
