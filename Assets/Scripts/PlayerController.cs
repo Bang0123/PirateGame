@@ -8,9 +8,11 @@ namespace Assets.Scripts
     public class PlayerController : Ship
     {
         public float ScoreTime = 0f;
-        public int EnemyLifetime = 10;
+        public int EnemyLifetime = 20;
 
         private int _currentGold;
+        private int _timeToIncreaseDifficulty = 10;
+        private int _difficultyIncrease = 10;
         private Text _goldText;
         private Text _healthText;
 
@@ -27,6 +29,7 @@ namespace Assets.Scripts
             _healthText = GameObject.FindGameObjectWithTag("Health").GetComponent<Text>();
             UpdateHealthCounter();
             UpdateGoldCounter();
+            InvokeRepeating("IncreaseDifficulty", _timeToIncreaseDifficulty, _timeToIncreaseDifficulty);
         }
 
         /// <summary>
@@ -40,6 +43,7 @@ namespace Assets.Scripts
             if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
             Fire();
             ScoreTime += Time.deltaTime;
+            Debug.Log(ScoreTime);
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace Assets.Scripts
         /// collider (2D physics only).
         /// </summary>
         /// <param name="other">The Collision2D data associated with this collision.</param>
-        void OnCollisionEnter2D(Collision2D other)
+        public void OnCollisionEnter2D(Collision2D other)
         {
             TakeDamage<EnemyController>(other.gameObject);
             UpdateHealthCounter();
@@ -64,9 +68,11 @@ namespace Assets.Scripts
         /// <summary>
         /// This function is called when the MonoBehaviour will be destroyed.
         /// </summary>
-        void OnDestroy()
+        public void OnDestroy()
         {
-            SceneManager.LoadScene("MainMenuScene");
+            // SceneManager.LoadScene("MainMenuScene");
+            GameObject.FindWithTag("RestartPanel").SetActive(true);
+            Time.timeScale = 0;
         }
 
         public void AddGold(int amount)
@@ -80,6 +86,12 @@ namespace Assets.Scripts
             _currentGold -= amount;
             UpdateGoldCounter();
         }
+
+        private void IncreaseDifficulty()
+        {
+            EnemyLifetime += _difficultyIncrease;
+        }
+
         private void UpdateGoldCounter()
         {
             _goldText.text = "" + _currentGold;
