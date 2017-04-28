@@ -12,7 +12,7 @@ public class shopOpener : MonoBehaviour
     void Update()
     {
         if (Input.GetKey("p")) OpenShop();
-
+        if (Input.GetKey("o")) CloseShop();
     }
 
     public void Start()
@@ -30,7 +30,7 @@ public class shopOpener : MonoBehaviour
     public void CloseShop()
     {
         shopPanel.SetActive(false);
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
 }
 
