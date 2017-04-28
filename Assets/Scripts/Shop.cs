@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour
           if (other.gameObject.CompareTag("Player"))
           Debug.Log("Collided with isle");
           OpenShop();
+  
     }
     //private void OnCollisionEnter2D(Collision2D other)
     //{
@@ -27,6 +28,7 @@ public class Shop : MonoBehaviour
     {
         shopPanel = GameObject.FindGameObjectWithTag("shopPanel");
     }
+
 
     void OpenShop()
     {
