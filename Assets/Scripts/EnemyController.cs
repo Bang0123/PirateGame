@@ -64,8 +64,8 @@ namespace Assets.Scripts
         {
             if ((int)_playerTransform.GetComponent<PlayerController>().ScoreTime % 10 == 0)
             {
-                Debug.Log(TimeBeforeSD);
-                TimeBeforeSD += 10;
+                Debug.Log(_playerController.EnemyLifetime);
+                _playerController.EnemyLifetime += 10;
             }
         }
     }
