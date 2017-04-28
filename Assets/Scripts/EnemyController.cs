@@ -18,12 +18,11 @@ namespace Assets.Scripts
         }
 
         // Update is called once per frame
-        public void Update()
+        public new void Update()
         {
-            Die();
+            base.Update();
             FireCannonballs();
             TurnToPlayer();
-            IncreaseDifficulty();
         }
 
         /// <summary>
@@ -58,15 +57,6 @@ namespace Assets.Scripts
         private void TurnToPlayer()
         {
             transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);
-        }
-
-        private void IncreaseDifficulty()
-        {
-            if ((int)_playerTransform.GetComponent<PlayerController>().ScoreTime % 10 == 0)
-            {
-                Debug.Log(_playerController.EnemyLifetime);
-                _playerController.EnemyLifetime += 10;
-            }
         }
     }
 }
