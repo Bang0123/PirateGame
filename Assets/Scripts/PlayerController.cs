@@ -7,6 +7,9 @@ namespace Assets.Scripts
 {
     public class PlayerController : Ship
     {
+        public float ScoreTime = 0f;
+        public int EnemyLifetime = 10;
+
         private int _currentGold;
         private Text _goldText;
 
@@ -27,12 +30,12 @@ namespace Assets.Scripts
         /// </summary>
         public void Update()
         {
-            Debug.Log(_health);
             // Speed boost.
             if (Input.GetKeyDown(KeyCode.Space)) _currentMovespeed = _boostedMovespeed;
             if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
             Fire();
             Die();
+            ScoreTime += Time.deltaTime;
         }
 
         /// <summary>

@@ -4,19 +4,17 @@ namespace Assets.Scripts
 {
     public class EnemyController : Ship
     {
+        private PlayerController _playerController;
         private Transform _playerTransform;
-        public bool SelfDesctruction;
-        public int TimeBeforeSD = 20;
+        
         // Use this for initialization
         public new void Start()
         {
             base.Start();
+            _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             _playerTransform = GameObject.FindWithTag("Player").transform;
             _health = 3;
-            if (SelfDesctruction)
-            {
-                Destroy(gameObject, TimeBeforeSD);
-            }
+            Destroy(gameObject, _playerController.EnemyLifetime);
         }
 
         // Update is called once per frame
@@ -25,6 +23,7 @@ namespace Assets.Scripts
             Die();
             FireCannonballs();
             TurnToPlayer();
+            IncreaseDifficulty();
         }
 
         /// <summary>
@@ -61,5 +60,13 @@ namespace Assets.Scripts
             transform.up = Vector2.Lerp(transform.up, _playerTransform.position - transform.position, .15f * Time.deltaTime);
         }
 
+        private void IncreaseDifficulty()
+        {
+            if ((int)_playerTransform.GetComponent<PlayerController>().ScoreTime % 10 == 0)
+            {
+                Debug.Log(TimeBeforeSD);
+                TimeBeforeSD += 10;
+            }
+        }
     }
 }
