@@ -13,7 +13,7 @@ namespace Assets.Scripts
 		/// </summary>
 		void Start()
 		{
-			_scoreText = gameObject.GetComponent<Text>();			
+			_scoreText = gameObject.GetComponent<Text>();
 		}
 
 		/// <summary>
@@ -21,6 +21,7 @@ namespace Assets.Scripts
 		/// </summary>
 		public void OnEnable()
 		{
+			Debug.Log("adkjgnbakjdgbkadgf");
 			_scoreText.text = GameObject.FindWithTag("Player").GetComponent<PlayerController>().ScoreTime.ToString();
 		}
     }
