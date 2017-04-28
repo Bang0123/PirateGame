@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
         public float ScoreTime = 0f;
         public int EnemyLifetime = 20;
+        public GameObject RestartPanel;
 
         private int _currentGold;
         private int _timeToIncreaseDifficulty = 10;
@@ -23,6 +24,7 @@ namespace Assets.Scripts
         public new void Start()
         {
             base.Start();
+            RestartPanel.SetActive(false);
             _currentGold = 0;
             _health = 3;
             _goldText = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
@@ -43,7 +45,9 @@ namespace Assets.Scripts
             if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
             Fire();
             ScoreTime += Time.deltaTime;
-            Debug.Log(ScoreTime);
+
+            // FOR TESTING
+            if (Input.GetKeyDown(KeyCode.Return)) Destroy(gameObject);
         }
 
         /// <summary>
@@ -71,7 +75,7 @@ namespace Assets.Scripts
         public void OnDestroy()
         {
             // SceneManager.LoadScene("MainMenuScene");
-            GameObject.FindWithTag("RestartPanel").SetActive(true);
+            RestartPanel.SetActive(true);
             Time.timeScale = 0;
         }
 
