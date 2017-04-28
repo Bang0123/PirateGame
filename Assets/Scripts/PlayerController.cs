@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -57,7 +58,7 @@ namespace Assets.Scripts
         /// </summary>
         void OnDestroy()
         {
-            // TODO: Implement restart game feature.
+            SceneManager.LoadScene("MainMenuScene");
         }
 
         public void AddGold(int amount)

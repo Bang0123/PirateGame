@@ -20,13 +20,7 @@ public class IsleCollider : MonoBehaviour
         Gold = 10;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-    }
-
-    
-    // Update is called once per frame
-    void Update()
-    {
-        InvokeRepeating("RegenGold", Goldcd, Goldcd);
+        InvokeRepeating("RegenGold", Goldcd, Goldcd);        
     }
 
     void RegenGold()
