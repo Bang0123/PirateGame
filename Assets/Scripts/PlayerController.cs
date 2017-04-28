@@ -12,6 +12,7 @@ namespace Assets.Scripts
 
         private int _currentGold;
         private Text _goldText;
+        private Text _healthText;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
@@ -23,6 +24,9 @@ namespace Assets.Scripts
             _currentGold = 0;
             _health = 3;
             _goldText = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
+            _healthText = GameObject.FindGameObjectWithTag("Health").GetComponent<Text>();
+            UpdateHealthCounter();
+            UpdateGoldCounter();
         }
 
         /// <summary>
@@ -54,6 +58,7 @@ namespace Assets.Scripts
         void OnCollisionEnter2D(Collision2D other)
         {
             TakeDamage<EnemyController>(other.gameObject);
+            UpdateHealthCounter();
         }
 
         /// <summary>
@@ -78,6 +83,10 @@ namespace Assets.Scripts
         private void UpdateGoldCounter()
         {
             _goldText.text = "" + _currentGold;
+        }
+        private void UpdateHealthCounter()
+        {
+            _healthText.text = "" + _health;
         }
 
         private void MovementControls()
