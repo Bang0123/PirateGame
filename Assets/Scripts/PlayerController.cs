@@ -11,9 +11,8 @@ namespace Assets.Scripts
         public int EnemyLifetime = 10;
 
         private int _currentGold;
-        private int _timeToIncreaseDifficulty = 10;
-        private int _difficultyIncrease = 10;
         private Text _goldText;
+        private Text _healthText;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
@@ -25,7 +24,9 @@ namespace Assets.Scripts
             _currentGold = 0;
             _health = 3;
             _goldText = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
-            InvokeRepeating("IncreaseDifficulty", _timeToIncreaseDifficulty, _timeToIncreaseDifficulty);
+            _healthText = GameObject.FindGameObjectWithTag("Health").GetComponent<Text>();
+            UpdateHealthCounter();
+            UpdateGoldCounter();
         }
 
         /// <summary>
@@ -39,7 +40,6 @@ namespace Assets.Scripts
             if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
             Fire();
             ScoreTime += Time.deltaTime;
-            Debug.Log(EnemyLifetime);
         }
 
         /// <summary>
@@ -55,15 +55,16 @@ namespace Assets.Scripts
         /// collider (2D physics only).
         /// </summary>
         /// <param name="other">The Collision2D data associated with this collision.</param>
-        public void OnCollisionEnter2D(Collision2D other)
+        void OnCollisionEnter2D(Collision2D other)
         {
             TakeDamage<EnemyController>(other.gameObject);
+            UpdateHealthCounter();
         }
 
         /// <summary>
         /// This function is called when the MonoBehaviour will be destroyed.
         /// </summary>
-        public void OnDestroy()
+        void OnDestroy()
         {
             SceneManager.LoadScene("MainMenuScene");
         }
@@ -79,15 +80,13 @@ namespace Assets.Scripts
             _currentGold -= amount;
             UpdateGoldCounter();
         }
-
-        private void IncreaseDifficulty()
-        {
-            EnemyLifetime += _difficultyIncrease;
-        }
-
         private void UpdateGoldCounter()
         {
             _goldText.text = "" + _currentGold;
+        }
+        private void UpdateHealthCounter()
+        {
+            _healthText.text = "" + _health;
         }
 
         private void MovementControls()
