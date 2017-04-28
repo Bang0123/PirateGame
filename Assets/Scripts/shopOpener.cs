@@ -11,12 +11,11 @@ public class shopOpener : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("p"))
-            OpenShop();
+        if (Input.GetKey("p")) OpenShop();
 
     }
 
-    private void Start()
+    public void Start()
     {
         shopPanel.SetActive(false);
         //shopPanel = GameObject.FindGameObjectWithTag("shopPanel");
@@ -25,7 +24,7 @@ public class shopOpener : MonoBehaviour
     public void OpenShop()
     {
         shopPanel.SetActive(true);
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
 
     public void CloseShop()
