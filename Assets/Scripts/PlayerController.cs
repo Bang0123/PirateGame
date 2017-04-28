@@ -32,13 +32,13 @@ namespace Assets.Scripts
         /// <summary>
         /// Update is called every frame, if the MonoBehaviour is enabled.
         /// </summary>
-        public void Update()
+        public new void Update()
         {
+            base.Update();
             // Speed boost.
             if (Input.GetKeyDown(KeyCode.Space)) _currentMovespeed = _boostedMovespeed;
             if (Input.GetKeyUp(KeyCode.Space)) _currentMovespeed = _movespeed;
             Fire();
-            Die();
             ScoreTime += Time.deltaTime;
         }
 
