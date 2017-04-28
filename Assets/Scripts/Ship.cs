@@ -30,6 +30,14 @@ namespace Assets.Scripts
             _port = transform.FindChild("Port");
         }
 
+        /// <summary>
+        /// Update is called every frame, if the MonoBehaviour is enabled.
+        /// </summary>
+        public void Update()
+        {
+            Die();
+        }
+
         protected void Die()
         {
             if (_health <= 0)

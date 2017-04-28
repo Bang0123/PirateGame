@@ -6,12 +6,26 @@ public class Shop : MonoBehaviour
 {
     public GameObject shopPanel;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.CompareTag("Player"))
-            Debug.Log("Collided with isle");          
-            OpenShop();
+          Debug.Log("Help me");
+        //if (other.gameObject.tag == "Player")
+          if (other.gameObject.CompareTag("Player"))
+          Debug.Log("Collided with isle");
+          OpenShop();
+    }
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    Debug.Log("Help me");
+    //    if (other.gameObject.tag == "Player")
+    //        Debug.Log("Collided with isle");
+    //        OpenShop();
+    //}
+
+
+    private void Start()
+    {
+        shopPanel = GameObject.FindGameObjectWithTag("shopPanel");
     }
 
     void OpenShop()
