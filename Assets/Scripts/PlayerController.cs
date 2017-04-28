@@ -12,7 +12,7 @@ namespace Assets.Scripts
         public GameObject RestartPanel;
 
         private int _currentGold;
-        private int _timeToIncreaseDifficulty = 10;
+        private int _timeToIncreaseDifficulty = 5;
         private int _difficultyIncrease = 10;
         private Text _goldText;
         private Text _healthText;
@@ -32,6 +32,8 @@ namespace Assets.Scripts
             UpdateHealthCounter();
             UpdateGoldCounter();
             InvokeRepeating("IncreaseDifficulty", _timeToIncreaseDifficulty, _timeToIncreaseDifficulty);
+
+            // Time.timeScale = 10;
         }
 
         /// <summary>

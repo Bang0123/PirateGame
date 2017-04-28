@@ -28,7 +28,7 @@ namespace Assets.Scripts
         /// <summary>
         /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
         /// </summary>
-        void FixedUpdate()
+        public void FixedUpdate()
         {
             _rb.AddRelativeForce(Vector2.up * _currentMovespeed * Time.fixedDeltaTime);
         }
@@ -40,7 +40,7 @@ namespace Assets.Scripts
         /// <param name="other">The Collision2D data associated with this collision.</param>
         public void OnCollisionEnter2D(Collision2D other)
         {
-            TakeDamage<PlayerController>(other.gameObject);
+            if (TakeDamage<PlayerController>(other.gameObject)) _playerController.AddGold(2);
         }
 
         private void FireCannonballs()

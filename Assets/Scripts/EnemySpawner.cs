@@ -6,7 +6,7 @@ namespace Assets.Scripts
     {
         public PlayerController _playerHealth;       
         public GameObject _enemy;                
-        public float _spawnTime = 6f;            
+        public float _spawnTime = 5f;            
         public Transform[] _spawnPoints;
 
         void Start()

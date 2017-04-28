@@ -53,13 +53,15 @@ namespace Assets.Scripts
             ball.GetComponent<Rigidbody2D>().AddRelativeForce(direction * _bulletspeed);
         }
 
-        protected void TakeDamage<T>(GameObject obj)
+        protected bool TakeDamage<T>(GameObject obj)
         {
             if (obj.CompareTag("Cannonball") && obj.GetComponent<BallController>().Parent is T)
             {
                 _health--;
                 Destroy(obj);
+                return true;
             }
+            return false;
         }
     }
 }

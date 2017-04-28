@@ -41,24 +41,16 @@ public class IsleCollider : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            //GUI.Label(new Rect(0, 0, 100, 100), "Some Random Text");
-            Debug.Log("Player robbed me xd");
             _playerController.AddGold(Gold);
             ResetGold();
         }
         if (col.gameObject.tag == "Cannonball")
         {
-            Debug.Log("Player Shot me xd");
-            if (_playerController != null)
+            if (col.gameObject.GetComponent<BallController>().Parent == _playerController)
             {
                 _playerController.AddGold(Gold);
                 ResetGold();
             }
         }
-
-
-
-
-
     }
 }
